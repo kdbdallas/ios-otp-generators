@@ -73,6 +73,7 @@ open class TOTPGenerator: OTPGenerator {
 		//let seconds = date.timeIntervalSince1970
 		//let milliseconds = (seconds * 1000)
 		let counter = (milliseconds / (30 * 1000))
+		print("counter: \(counter)")
 		return self.generateOTPForCounter(counter)
 	}
 
