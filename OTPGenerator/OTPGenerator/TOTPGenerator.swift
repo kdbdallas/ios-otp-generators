@@ -71,8 +71,8 @@ open class TOTPGenerator: OTPGenerator {
 		let date = Date()
 		let seconds = date.timeIntervalSince1970
 		let milliseconds = floor(seconds * 1000)
-		let counter = (UInt64(milliseconds) / UInt64((self.period * 1000)))
-		return self.generateOTPForCounter(counter)
+		let counter = (milliseconds / (self.period * 1000))
+		return self.generateOTPForCounter(UInt64(counter))
 	}
 
 }
