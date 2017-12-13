@@ -70,7 +70,7 @@ open class TOTPGenerator: OTPGenerator {
 	open func generateOTPForMilliseconds() -> String? {
 		let date = Date()
 		let seconds = date.timeIntervalSince1970
-		let milliseconds = floor(seconds * 1000)
+		let milliseconds = (seconds * 1000)
 		let counter = (milliseconds / (self.period * 1000))
 		return self.generateOTPForCounter(UInt64(counter))
 	}
