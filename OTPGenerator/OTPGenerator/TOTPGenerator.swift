@@ -62,5 +62,9 @@ open class TOTPGenerator: OTPGenerator {
         let counter = uint_fast64_t(seconds / self.period)
         return self.generateOTPForCounter(counter)
     }
+	
+	open func generateOTPForStepValue(_ step: UInt64) -> String? {
+		return self.generateOTPForCounter(step)
+	}
 
 }
