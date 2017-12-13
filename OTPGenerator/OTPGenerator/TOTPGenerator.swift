@@ -71,9 +71,14 @@ open class TOTPGenerator: OTPGenerator {
 		let date = Date()
 		let seconds = date.timeIntervalSince1970
 		let milliseconds = (seconds * 1000)
+		print("milli: \(milliseconds)")
 		let counter = (milliseconds / (self.period * 100))
+		print("step: \(counter)")
+		print("step64: \(UInt64(counter))")
 		
-		return self.generateOTPForCounter(UInt64(counter))
+		let TOTP = self.generateOTPForCounter(UInt64(counter))
+		print("TOTP: \(String(describing: TOTP))")
+		return TOTP
 	}
 
 }
