@@ -74,17 +74,12 @@ open class TOTPGenerator: OTPGenerator {
 		print("seconds: \(seconds)")
 		let milliseconds = (seconds * 1000)
 		print("milli: \(milliseconds)")
-		let counter = (milliseconds / (self.period * 100))
-		let counter2 = (milliseconds / (self.period * 1000))
+		let counter = (milliseconds / (self.period * 1000))
 		print("step: \(counter)")
 		print("step64: \(UInt64(counter))")
-		print("step2 64: \(UInt64(counter2))")
 		
 		let TOTP = self.generateOTPForCounter(UInt64(counter))
 		print("TOTP: \(String(describing: TOTP))")
-		
-		let TOTP2 = self.generateOTPForCounter(UInt64(counter2))
-		print("TOTP2: \(String(describing: TOTP2))")
 		
 		return TOTP
 	}
